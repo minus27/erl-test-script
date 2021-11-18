@@ -126,12 +126,12 @@ getArgs() {
 	# Checks:
 	[[ "${#POSITIONAL[@]}" -ne 0 ]] &&  exitOnError "No positional arguments expected, ${#POSITIONAL[@]} found" "1"
 
-	REQ_ARGS=()
+	REQ_ARGS=(VA_TARGET_URL)
 	OPT_ARGS=(VA_RATE VA_DURATION VA_TARGET_METHOD VA_TARGET_URL VA_REPORT_INTERVAL OF_NAME LOG)
-	#for NAME in "${REQ_ARGS[@]}"
-	#do
-	#	[[ "${!NAME}" == "" ]] && exitOnError "Value for ${NAME} required"
-	#done
+	for NAME in "${REQ_ARGS[@]}"
+	do
+		[[ "${!NAME}" == "" ]] && exitOnError "Value for ${NAME} required"
+	done
 
 	[[ "${VA_UA}" == "" ]] && {
 		getVegetaUserAgent
