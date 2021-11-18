@@ -130,7 +130,7 @@ getArgs() {
 	OPT_ARGS=(VA_RATE VA_DURATION VA_TARGET_METHOD VA_TARGET_URL VA_REPORT_INTERVAL OF_NAME LOG)
 	for NAME in "${REQ_ARGS[@]}"
 	do
-		[[ "${!NAME}" == "" ]] && exitOnError "Value for ${NAME} required"
+		[[ "${!NAME}" == "" ]] && exitOnError "Value for ${NAME} required" 1
 	done
 
 	[[ "${VA_UA}" == "" ]] && {
